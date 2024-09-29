@@ -11,25 +11,21 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         _view = view;
     }
 
-    function onKey(keyEvent) {
-        if (keyEvent.getKey() == KEY_UP) {
-            var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
-            makeImageRequest(url);
-            return true;
-        }
-        else if (keyEvent.getKey() == KEY_DOWN) {
-            var url = "https://fox.phys.uit.no/ASC/keogram_ASC01.png";
-            makeImageRequest(url);
-            return true;
-        }
-        else {
-            return false;
-        }
+    function onNextPage() {
+        var url = "https://fox.phys.uit.no/ASC/keogram_ASC01.png";
+        makeImageRequest(url);
+        return true;
+    }
+
+    function onPreviousPage() {
+        var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
+        makeImageRequest(url);
+        return true;
     }
 
     function onMenu() as Boolean {
         // WatchUi.pushView(new Rez.Menus.MainMenu(), new aurora_skyMenuDelegate(), WatchUi.SLIDE_UP);
-        return true;
+        return false;
     }
     
     function makeImageRequest(url) {
