@@ -18,9 +18,11 @@ class aurora_skyApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
-        return [ new aurora_skyView(), new aurora_skyDelegate() ];
-    }
 
+        var view = new aurora_skyView();
+        var delegate = new aurora_skyDelegate();
+        return [ view, delegate ];
+    }
 }
 
 function getApp() as aurora_skyApp {
