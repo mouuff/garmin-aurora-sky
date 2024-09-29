@@ -1,3 +1,3 @@
 <layout id="MainLayout">
-    <bitmap id="id_monkey" x="center" y="30" filename="../drawables/monkey.png" />
+    <text-area id="BlockOfText" text="@Strings.loading" x="10%" y="50%" width="80%" height="80%"/>
 </layout>
