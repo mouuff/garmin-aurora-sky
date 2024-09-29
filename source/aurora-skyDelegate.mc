@@ -38,20 +38,20 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         var parameters = null;
         var options = {
             :palette => [
-                Graphics.COLOR_WHITE, // set the palette to 16 colors
-                Graphics.COLOR_LT_GRAY,
-                Graphics.COLOR_DK_GRAY,
-                Graphics.COLOR_BLACK,
-                Graphics.COLOR_RED,
-                Graphics.COLOR_DK_RED,
-                Graphics.COLOR_ORANGE,
-                Graphics.COLOR_YELLOW,
-                Graphics.COLOR_GREEN,
-                Graphics.COLOR_DK_GREEN,
-                Graphics.COLOR_BLUE,
-                Graphics.COLOR_DK_BLUE,
-                Graphics.COLOR_PURPLE,
-                Graphics.COLOR_PINK
+                Graphics.COLOR_WHITE,        // White for bright highlights
+                Graphics.COLOR_LT_GRAY,      // Light gray for softer highlights
+                Graphics.COLOR_DK_GRAY,      // Dark gray for shadows
+                Graphics.COLOR_BLACK,        // Black for deep shadows
+                Graphics.COLOR_GREEN,        // Bright green for vivid aurora
+                Graphics.COLOR_DK_GREEN,     // Dark green for deeper aurora shades
+                Graphics.COLOR_YELLOW,       // Yellow for some variation in the aurora
+                Graphics.COLOR_RED,          // Bright red for intense aurora
+                Graphics.COLOR_DK_RED,       // Dark red for deeper aurora shades
+                Graphics.COLOR_ORANGE,       // Orange for transitional colors
+                Graphics.COLOR_BLUE,         // Blue for background or sky
+                Graphics.COLOR_DK_BLUE,      // Dark blue for night sky
+                Graphics.COLOR_PURPLE,       // Purple for some aurora variations
+                Graphics.COLOR_PINK          // Pink for softer aurora highlights
             ],
             :maxWidth => width,
             :maxHeight => height,
