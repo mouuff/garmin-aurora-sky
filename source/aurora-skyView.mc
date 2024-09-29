@@ -2,6 +2,7 @@ import Toybox.Graphics;
 import Toybox.WatchUi;
 
 class aurora_skyView extends WatchUi.View {
+    hidden var _bitmap;
 
     function initialize() {
         View.initialize();
@@ -22,6 +23,16 @@ class aurora_skyView extends WatchUi.View {
     function onUpdate(dc as Dc) as Void {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
+
+        var cx = dc.getWidth() / 2;
+        var cy = dc.getHeight() / 2;
+
+        if (_bitmap != null) {
+            cx -= _bitmap.getWidth() / 2;
+            cy -= _bitmap.getHeight() / 2;
+
+            dc.drawBitmap(cx, cy, _bitmap);
+        }
     }
 
     // Called when this View is removed from the screen. Save the
@@ -30,4 +41,9 @@ class aurora_skyView extends WatchUi.View {
     function onHide() as Void {
     }
 
+
+    function setImage(data) {
+        _bitmap = data;
+        WatchUi.requestUpdate();
+    }
 }
