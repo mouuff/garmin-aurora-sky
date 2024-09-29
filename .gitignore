@@ -1,0 +1,6 @@
+# Build files
+bin/
+mir/
+internal-mir/
+gen/
+export/glifx.iq
