@@ -33,9 +33,27 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         var height = _view.getHeight();
         var parameters = null;
         var options = {
+            :palette => [
+                0xFFFFFF, // White
+                0xD3D3D3, // Light Gray
+                0xA9A9A9, // Dark Gray
+                0x000000, // Black
+                0x00FF00, // Bright Green
+                0x00CC00, // Medium Green
+                0x009900, // Dark Green
+                0x006600, // Very Dark Green
+                0xFFFF00, // Yellow
+                0xFFCC00, // Orange-Yellow
+                0xFF9900, // Orange
+                0xFF0000, // Bright Red
+                0xCC0000, // Medium Red
+                0x990000, // Dark Red
+                0x00AAFF, // Bright Blue
+                0x800080  // Purple
+            ],
             :maxWidth => width,
             :maxHeight => height,
-            :dithering => Communications.IMAGE_DITHERING_NONE
+            :dithering => Communications.IMAGE_DITHERING_FLOYD_STEINBERG
         };
         
         _view.setText("Loading...");
