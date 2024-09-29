@@ -23,8 +23,8 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function makeImageRequest(url) {
-        var width = _view.width;
-        var height = _view.height;
+        var width = _view.getWidth();
+        var height = _view.getHeight();
         var parameters = null;
         var options = {
             :palette => [

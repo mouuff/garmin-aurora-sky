@@ -3,8 +3,8 @@ import Toybox.WatchUi;
 
 class aurora_skyView extends WatchUi.View {
     hidden var _bitmap;
-    public var width;
-    public var height;
+    hidden var _width;
+    hidden var _height;
 
     function initialize() {
         View.initialize();
@@ -13,8 +13,8 @@ class aurora_skyView extends WatchUi.View {
     // Load your resources here
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.MainLayout(dc));
-        width = dc.getWidth();
-        height = dc.getHeight();
+        _width = dc.getWidth();
+        _height = dc.getHeight();
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -28,8 +28,8 @@ class aurora_skyView extends WatchUi.View {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
 
-        var cx = dc.getWidth() / 2;
-        var cy = dc.getHeight() / 2;
+        var cx = getWidth() / 2;
+        var cy = getHeight() / 2;
 
         if (_bitmap != null) {
             cx -= _bitmap.getWidth() / 2;
@@ -45,9 +45,16 @@ class aurora_skyView extends WatchUi.View {
     function onHide() as Void {
     }
 
-
     function setImage(data) {
         _bitmap = data;
         WatchUi.requestUpdate();
+    }
+
+    function getWidth() {
+        return _width;
+    }
+
+    function getHeight() {
+        return _height;
     }
 }
