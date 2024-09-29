@@ -1,7 +1,11 @@
+
+import Toybox.Lang;
 import Toybox.Graphics;
 import Toybox.WatchUi;
 
 class aurora_skyView extends WatchUi.View {
+    public var onShowCallback as Lang.Method?;
+
     hidden var _bitmap;
     hidden var _width;
     hidden var _height;
@@ -21,6 +25,7 @@ class aurora_skyView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
+        self.onShowCallback.invoke();
     }
 
     // Update the view

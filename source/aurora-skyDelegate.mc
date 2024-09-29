@@ -32,11 +32,6 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
-    function onLoad() {
-        var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
-        makeImageRequest(url);
-    }
-
     function makeImageRequest(url) {
         var width = _view.getWidth();
         var height = _view.getHeight();

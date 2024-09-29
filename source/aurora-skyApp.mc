@@ -3,6 +3,8 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class aurora_skyApp extends Application.AppBase {
+    hidden var _view;
+    hidden var _delegate;
 
     function initialize() {
         AppBase.initialize();
@@ -18,10 +20,16 @@ class aurora_skyApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
+        _view = new aurora_skyView();
+        _delegate = new aurora_skyDelegate(_view);
 
-        var view = new aurora_skyView();
-        var delegate = new aurora_skyDelegate(view);
-        return [ view, delegate ];
+        _view.onShowCallback = method(:onInitialShow);
+        return [ _view, _delegate ];
+    }
+
+    function onInitialShow() {
+        var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
+        _delegate.makeImageRequest(url);
     }
 }
 
