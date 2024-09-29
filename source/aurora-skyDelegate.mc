@@ -12,8 +12,15 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onKey(keyEvent) {
-        var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
-        makeImageRequest(url);
+        if (keyEvent.getKey() == KEY_UP) {
+            var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
+            makeImageRequest(url);
+        }
+        else if (keyEvent.getKey() == KEY_DOWN) {
+            var url = "https://fox.phys.uit.no/ASC/keogram_ASC01.png";
+            makeImageRequest(url);
+        }
+
         return true;
     }
 
