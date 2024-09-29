@@ -4,10 +4,11 @@ import Toybox.Communications;
 import Toybox.Graphics;
 
 class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
-    public var toggleResponseCallback as Lang.Method?;
+    hidden var _view;
 
-    function initialize() {
+    function initialize(view) {
         BehaviorDelegate.initialize();
+        _view = view;
     }
 
     function onKey(keyEvent) {
@@ -23,7 +24,7 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
             :dithering => Communications.IMAGE_DITHERING_NONE 
         };
         
-        Communications.makeImageRequest(url, parameters, options, toggleResponseCallback);
+        Communications.makeImageRequest(url, parameters, options, method(:onImageResponse));
         return true;
     }
 
@@ -32,9 +33,9 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
-    function responseCallback(responseCode, data) {
-        if (responseCode != 200) {
-            // _view.setBitmap(data);
+    function onImageResponse(responseCode as $.Toybox.Lang.Number, data as Null or $.Toybox.Graphics.BitmapReference or $.Toybox.WatchUi.BitmapResource) as Void {
+        if (responseCode == 200) {
+            _view.setImage(data);
         }
         else {
             // _view.setString("Failed.");
