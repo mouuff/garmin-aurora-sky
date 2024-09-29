@@ -1,9 +1,10 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
-using Toybox.Communications as Comm;
-using Toybox.Graphics as Gfx;
+import Toybox.Communications;
+import Toybox.Graphics;
 
 class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
+    public var toggleResponseCallback as Lang.Method?;
 
     function initialize() {
         BehaviorDelegate.initialize();
@@ -11,22 +12,18 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
 
     function onKey(keyEvent) {
         var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
-        var params = {};
+        var parameters = null;
         var options = {
-            :palette => [
-                Gfx.COLOR_WHITE,
-                Gfx.COLOR_GREEN,
-                Gfx.COLOR_DK_GREEN,
-                Gfx.COLOR_LT_GRAY,
-                Gfx.COLOR_DK_GRAY,
-                Gfx.COLOR_BLACK
-            ],
-            :maxWidth => 127,
-            :maxHeight => 127,
-            :dithering => Comm.IMAGE_DITHERING_NONE
+            :palette => [ Graphics.COLOR_ORANGE,
+                          Graphics.COLOR_DK_BLUE,
+                          Graphics.COLOR_BLUE,
+                          Graphics.COLOR_BLACK ],
+            :maxWidth => 100,
+            :maxHeight => 100,
+            :dithering => Communications.IMAGE_DITHERING_NONE 
         };
         
-        Comm.makeImageRequest(url, params, options, self.method(:onImageResponse));
+        Communications.makeImageRequest(url, parameters, options, toggleResponseCallback);
         return true;
     }
 
@@ -35,9 +32,9 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
-    function onImageResponse(code, bitmap) {
-        if (code != 200) {
-            // _view.setBitmap(bitmap);
+    function responseCallback(responseCode, data) {
+        if (responseCode != 200) {
+            // _view.setBitmap(data);
         }
         else {
             // _view.setString("Failed.");
