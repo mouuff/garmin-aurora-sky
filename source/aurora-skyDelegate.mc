@@ -12,10 +12,19 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onKey(keyEvent) {
+        var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
+        makeImageRequest(url);
+        return true;
+    }
+
+    function onMenu() as Boolean {
+        WatchUi.pushView(new Rez.Menus.MainMenu(), new aurora_skyMenuDelegate(), WatchUi.SLIDE_UP);
+        return true;
+    }
+
+    function makeImageRequest(url) {
         var width = _view.width;
         var height = _view.height;
-
-        var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
         var parameters = null;
         var options = {
             :palette => [
@@ -32,12 +41,6 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         };
         
         Communications.makeImageRequest(url, parameters, options, method(:onImageResponse));
-        return true;
-    }
-
-    function onMenu() as Boolean {
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new aurora_skyMenuDelegate(), WatchUi.SLIDE_UP);
-        return true;
     }
 
     function onImageResponse(
