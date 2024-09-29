@@ -33,7 +33,9 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
-    function onImageResponse(responseCode as $.Toybox.Lang.Number, data as Null or $.Toybox.Graphics.BitmapReference or $.Toybox.WatchUi.BitmapResource) as Void {
+    function onImageResponse(
+            responseCode as $.Toybox.Lang.Number,
+            data as Null or $.Toybox.Graphics.BitmapReference or $.Toybox.WatchUi.BitmapResource) as Void {
         if (responseCode == 200) {
             _view.setImage(data);
         }
