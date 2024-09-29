@@ -13,13 +13,13 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
 
     function onNextPage() {
         var url = "https://fox.phys.uit.no/ASC/keogram_ASC01.png";
-        makeImageRequest(url);
+        makeImageRequest(url, false);
         return true;
     }
 
     function onPreviousPage() {
         var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
-        makeImageRequest(url);
+        makeImageRequest(url, true);
         return true;
     }
 
@@ -28,9 +28,15 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         return false;
     }
     
-    function makeImageRequest(url) {
-        var width = _view.getWidth() * 1.15;
-        var height = _view.getHeight() * 1.15;
+    function makeImageRequest(url, zoom as Boolean) {
+        var width = _view.getWidth();
+        var height = _view.getHeight();
+
+        if (zoom) {
+            width = width * 1.15;
+            height = height * 1.15;
+        }
+
         var parameters = null;
         var options = {
             :palette => [

@@ -28,8 +28,7 @@ class aurora_skyApp extends Application.AppBase {
     }
 
     function onInitialShow() {
-        var url = "https://fox.phys.uit.no/ASC/Latest_ASC01.png";
-        _delegate.makeImageRequest(url);
+        _delegate.onPreviousPage();
     }
 }
 
