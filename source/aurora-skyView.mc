@@ -7,11 +7,14 @@ class aurora_skyView extends WatchUi.View {
     public var onShowCallback as Lang.Method?;
 
     hidden var _bitmap;
+    hidden var _text;
+    
     hidden var _width;
     hidden var _height;
 
     function initialize() {
         View.initialize();
+        _text = "Loadi.";
     }
 
     // Load your resources here
@@ -41,6 +44,8 @@ class aurora_skyView extends WatchUi.View {
             cy -= _bitmap.getHeight() / 2;
 
             dc.drawBitmap(cx, cy, _bitmap);
+        } else {
+            dc.drawText(cx, cy, Graphics.FONT_SMALL, _text, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
     }
 
@@ -52,6 +57,13 @@ class aurora_skyView extends WatchUi.View {
 
     function setImage(data) {
         _bitmap = data;
+        _text = null;
+        WatchUi.requestUpdate();
+    }
+
+    function setText(text) {
+        _bitmap = null;
+        _text = text;
         WatchUi.requestUpdate();
     }
 
