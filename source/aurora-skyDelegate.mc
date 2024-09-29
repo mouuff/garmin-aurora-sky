@@ -68,7 +68,7 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
             _view.setImage(data);
         }
         else {
-            // _view.setString("Failed.");
+            _view.setText("Network error: " + responseCode);
         }
     }
 }

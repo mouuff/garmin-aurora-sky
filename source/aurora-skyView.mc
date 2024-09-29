@@ -14,7 +14,7 @@ class aurora_skyView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
-        _text = "Loadi.";
+        _text = "Loading...";
     }
 
     // Load your resources here
@@ -44,7 +44,8 @@ class aurora_skyView extends WatchUi.View {
             cy -= _bitmap.getHeight() / 2;
 
             dc.drawBitmap(cx, cy, _bitmap);
-        } else {
+        }
+        else {
             dc.drawText(cx, cy, Graphics.FONT_SMALL, _text, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
     }

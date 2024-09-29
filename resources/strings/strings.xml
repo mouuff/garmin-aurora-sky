@@ -1,7 +1,5 @@
 <strings>
-    <string id="AppName">aurora-sky</string>
-
-    <string id="loading">Loading...</string>
+    <string id="AppName">Aurora sky</string>
 
     <string id="menu_label_1">Item 1</string>
     <string id="menu_label_2">Item 2</string>
