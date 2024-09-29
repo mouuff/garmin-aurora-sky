@@ -28,12 +28,20 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
         var parameters = null;
         var options = {
             :palette => [
-                Graphics.COLOR_WHITE,
-                Graphics.COLOR_GREEN,
-                Graphics.COLOR_DK_GREEN,
+                Graphics.COLOR_WHITE, // set the palette to 16 colors
                 Graphics.COLOR_LT_GRAY,
                 Graphics.COLOR_DK_GRAY,
-                Graphics.COLOR_BLACK
+                Graphics.COLOR_BLACK,
+                Graphics.COLOR_RED,
+                Graphics.COLOR_DK_RED,
+                Graphics.COLOR_ORANGE,
+                Graphics.COLOR_YELLOW,
+                Graphics.COLOR_GREEN,
+                Graphics.COLOR_DK_GREEN,
+                Graphics.COLOR_BLUE,
+                Graphics.COLOR_DK_BLUE,
+                Graphics.COLOR_PURPLE,
+                Graphics.COLOR_PINK
             ],
             :maxWidth => width,
             :maxHeight => height,
