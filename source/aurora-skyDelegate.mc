@@ -58,6 +58,7 @@ class aurora_skyDelegate extends WatchUi.BehaviorDelegate {
             :dithering => Communications.IMAGE_DITHERING_NONE
         };
         
+        _view.setText("Loading...");
         Communications.makeImageRequest(url, parameters, options, method(:onImageResponse));
     }
 
